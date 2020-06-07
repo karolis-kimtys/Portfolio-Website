@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% extends "base/base.html" %}
+{% block body_block %}
+{% load static %}
+
+<div class="container-md">
+    <img class="projectlogo" src="{{ project_details.project_image.url }}" alt="Image not found"> 
+    <br>
+    <h1 class = "title">{{ project_details.project_title }}</h1>
+    <hr class="my-4">
+   
+    <h5>{{ project_details.project_summary|safe }}</h5>
+
+    <br>
+
+    <div class = "container-xl">
+        <p class="code">{{ project_details.project_content|safe }}</p>
+    </div>
+
+    <a id="navbtn" class="nav-link active" target="_blank" href="{{ project_details.project_github }}">
+        <img class = "social" src="{% static 'images/github.svg' %}" alt="">GitHub</a>
+    </a>
+
+    <p id = "card-published">Published on {{ project_details.project_published }}</p>
+
+</div>
+
+{% endblock %}

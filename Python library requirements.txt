@@ -1,0 +1,16 @@
+argon2-cffi==19.2.0
+asgiref==3.2.7
+bcrypt==3.1.7
+certifi==2020.4.5.1
+cffi==1.14.0
+Django==3.0.6
+django-summernote==0.8.11.6
+django-tinymce==3.0.2
+django-tinymce4-lite==1.8.0
+jsmin==2.2.2
+Pillow==7.1.2
+pycparser==2.20
+pytz==2020.1
+six==1.14.0
+sqlparse==0.3.1
+wincertstore==0.2

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% extends "base/base.html" %}
+{% block body_block %}
+
+
+    <div class="container">
+      <div class="jumbotron">
+            <form class="signupform" enctype = "multipart/form-data" method="post">
+
+                <h1 class="display-4">Sign In</h1>
+                <p class="lead">Please enter required information.</p>
+                <hr class="my-4">
+
+                {% csrf_token %}
+                <div class="d-flex justify-content-center">
+                  <div class="input-group input-group-sm w-25">
+                    <input id = 'singinform' type="username" class="form-control" name="username" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                  </div>
+                </div>
+                <br>
+
+                <div class="d-flex justify-content-center">
+                  <div class="input-group input-group-sm w-25">
+                    <input id = 'singinform' type="password" class="form-control" name="password" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+                  </div>
+                </div>
+                <br>
+                
+                <div class="text-center">
+                  <input id = "signinform" type="submit" class="btn btn-secondary" value="Sign In">
+                </div>
+                
+          </form>
+        </div>
+      </div>
+
+{% endblock %}

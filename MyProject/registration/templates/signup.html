@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% extends "base/base.html" %}
+{% block body_block %}
+
+
+    <div class="container">
+      <div class="jumbotron">
+            <form class="signupform" enctype = "multipart/form-data" method="post">
+
+                <h1 class="display-4">Sign Up</h1>
+                <p class="lead">Please enter required information.</p>
+                <hr class="my-4">
+
+                {% csrf_token %}
+
+                <div class="d-flex justify-content-center">
+                  <div class="input-group input-group-sm w-25">
+                    <input id = 'username' type="text" class="form-control" name="username" placeholder="User Name" aria-label="User Name" aria-describedby="basic-addon1">
+                  </div>
+                </div>
+                <br>
+
+                <div class="d-flex justify-content-center">
+                  <div class="input-group input-group-sm w-25">
+                    <input id = 'firstname' type="text" class="form-control" name="first_name" placeholder="First Name" aria-label="First Name" aria-describedby="basic-addon1">
+                    <input id = 'lastname' type="text" class="form-control" name="last_name" placeholder="Last Name" aria-label="Last Name" aria-describedby="basic-addon1">
+                  </div>
+                </div>
+                <br>
+
+                <div class="d-flex justify-content-center">
+                  <div class="input-group input-group-sm w-25">
+                    <input id = 'email' type="email" class="form-control" name="email" placeholder="E-mail" aria-label="E-mail" aria-describedby="basic-addon1">
+                  </div>
+                </div>
+                <br>
+
+                <div class="d-flex justify-content-center">
+                  <div class="input-group input-group-sm w-25">
+                    <input id = 'password' type="password" class="form-control" name="password" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+                  </div>
+                </div>
+                <br>
+
+              <div class="text-center">
+                <input type="submit" class="btn btn-secondary" value="Sign Up">
+              </div>
+
+          </form>
+        </div>
+      </div>
+
+{% endblock %}

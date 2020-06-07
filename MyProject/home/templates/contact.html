@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% extends "base/base.html" %}
+{% load static %}
+{% block body_block %}
+
+    <div class="container-md">
+        <h1 class="display-4">Contact Me</h1>
+        <hr class="my-4">
+
+            <a id="socialbtn" class="" target ="_blank" href="https://github.com/k-karolis">
+              <img class = "contact" src="{% static 'images/github.svg' %}" alt="">GitHub
+            </a>
+
+            <a id="socialbtn" class="" target ="_blank" href="https://www.linkedin.com/in/karoliskimtys/">
+              <img class = "contact" src="{% static 'images/linkedin.svg' %}" alt="">LinkedIn
+            </a>
+
+            <a id="socialbtn" class="" target ="_blank" href="mailto:karolis.kimtys@gmail.com">
+              <img class = "contact" src="{% static 'images/email.svg' %}" alt="">Email Me
+            </a>
+
+            <a id="socialbtn" class="" target ="_blank" href="http://www.m.me/KarolisKimtys">
+              <img class = "contact" src="{% static 'images/messenger.svg' %}" alt="">Messenger
+            </a>
+
+    </div>
+
+
+{% endblock %}

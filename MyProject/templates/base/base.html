@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+{% load static %}
+{% include 'base/message.html' %}
+  <head>
+    <!-- <script src="{% static 'js/script.js' %}"></script> -->
+    <script src="{% static 'js/nodes.js' %}"></script>
+    <link rel="shortcut icon" href="{% static 'images/favicon.svg' %}">
+    <meta charset="utf-8">
+    <title>Karolis Kimtys | Web Developer</title>
+
+    <link rel="stylesheet" href="/static/css/mystyle.css">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+    crossorigin="anonymous">
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" 
+    crossorigin="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+ 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no,user-scalable=0"/>
+
+    <title>nodes.js - js connected nodes animation</title>
+    <meta name="description" content="nodes.js is a nodes/particles animation useable for backgrounds">
+    <meta name="keywords" content="nodes, animation, particlees, web, html5, canvas, backgorund">
+
+  </head>
+
+    <!-- <script>
+      $(function(){
+          $('a').each(function(){
+              if ($(this).prop('href') == window.location.href) {
+                  $(this).addClass('active'); $(this).parents('li').addClass('active');
+              }
+          });
+      });
+    </script> -->
+
+    <!-- <nodes.js embedding> -->
+  <script type="text/javascript" src="{% static 'js/nodes.js' %}"></script>
+  <script type="text/javascript">
+            var nodesjs = new NodesJs({
+                id: 'nodes',
+                width: window.innerWidth,
+                height: window.innerHeight,
+                particleSize: 1,
+                lineSize: 0.5,
+                particleColor: [255, 255, 255, 0.3],
+                lineColor: [255, 255, 255],
+                backgroundFrom: [10, 25, 100],
+                backgroundTo: [25, 50, 150],
+                backgroundDuration: 4000,
+                nobg: true,
+                number: window.hasOwnProperty('orientation') ? 30: 100,
+                speed: 10
+            });
+        </script>
+        <div style="position: fixed;
+                  left: 0px; 
+                  top: 0px; 
+                  overflow: hidden;
+                  width: 100%; 
+                  height: 100%;
+                  z-index: -5;">
+            <canvas id="nodes"></canvas>
+        </div>
+        <!-- </nodes.js embedding> -->
+
+        <script type="text/javascript">
+            window.onresize = function () {
+                nodesjs.setWidth(window.innerWidth);
+                nodesjs.setHeight(window.innerHeight);
+            };
+    </script>
+
+    <script>
+        function fadeInPage() {
+          if (!window.AnimationEvent) { return; }
+          var fader = document.getElementById('fader');
+          fader.classList.add('fade-out');
+      }
+    </script> 
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        if (!window.AnimationEvent) { return; }
+        var anchors = document.getElementsByTagName('a');
+        for (var idx=0; idx<anchors.length; idx+=1) {
+          if (anchors[idx].hostname !== window.location.hostname ||
+            anchors[idx].pathname === window.location.pathname) {
+            continue;
+        }
+        anchors[idx].addEventListener('click', function(event) {
+            var fader = document.getElementById('fader'),
+                anchor = event.currentTarget;
+            
+            var listener = function() {
+                window.location = anchor.href;
+                fader.removeEventListener('animationend', listener);
+            };
+            fader.addEventListener('animationend', listener);
+            
+            event.preventDefault();
+            fader.classList.add('fade-in');
+                });
+            }
+        });
+        window.addEventListener('pageshow', function (event) {
+          if (!event.persisted) {
+            return;
+          }
+          var fader = document.getElementById('fader');
+          fader.classList.remove('fade-in');
+        });
+    </script>
+
+    <script>
+      $(document).ready(function () {
+          $(document).click(function (event) {
+              var clickover = $(event.target);
+              var _opened = $(".navbar-collapse").hasClass("navbar-collapse in");
+              if (_opened === true && !clickover.hasClass("navbar-toggler")) {
+                  $("button.navbar-toggler").click();
+              }
+          });
+      });
+    </script>
+
+    <script>
+      $(function() {
+        $(document).click(function (event) {
+          $('.navbar-collapse').collapse('hide');
+        });
+      });
+    </script>
+
+    <script>
+      $(function(){
+          $('a').each(function(){
+              if ($(this).prop('href') == window.location.href) {
+                  $(this).addClass('active'); $(this).parents('li').addClass('active');
+              }
+          });
+      });
+    </script>
+
+<style>  
+
+  body{
+  background-image: url("{% static 'images/mount.jpg' %}");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-color: rgb(0, 0, 0);
+  z-index: 1000;
+  }
+
+</style>
+
+  <!-- <video autoplay muted loop id="myVideo">
+    <source src="{% static 'images/rain.mp4' %}" type="video/mp4">
+    <script>document.querySelector('video').playbackRate = 0.75;</script>
+  </video> -->
+
+<body>
+
+    <svg id="fader"></svg>
+    <script>
+      fadeInPage();
+    </script>
+
+    <nav class="sidebar">
+      <button id = "menubtn" class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <img class = "social" src="{% static 'images/menu.svg' %}" alt="">MENU</button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+
+        <ul class="nav navbar-nav">
+          <div class="linkicons">
+            <li>
+              <a id="navbtn" class="nav-link active" href="{% url 'index' %}">
+                <img class = "social" src="{% static 'images/home.svg' %}" alt="">Home</a>
+            </li>
+            <li>
+              <a id="navbtn" class="nav-link active" href="{% url 'portfolio:list' %}">
+                <img class = "social" src="{% static 'images/portfolio.svg' %}" alt="">Portfolio</a>
+              </a>
+            </li>
+            <li>
+              <a id="navbtn" class="nav-link active" href="{% url 'experience:list' %}">
+                <img class = "social" src="{% static 'images/resume.svg' %}" alt="">Experience</a>
+              </a>
+            </li>
+            <li>
+              <a id="navbtn" class="nav-link active" href="{% url 'home:about' %}">
+                <img class = "social" src="{% static 'images/contact.svg' %}" alt="">About</a>
+              </a>
+            </li>
+            <li>
+              <a id="navbtn" class="nav-link active" href="{% url 'home:contact' %}">
+                <img class = "social" src="{% static 'images/about.svg' %}" alt="">Contact</a>
+              </a>
+            </li>
+              <a id="navbtn" class="nav-link active" href="{% url 'admin:index' %}">
+                <img class = "social" src="{% static 'images/admin.svg' %}" alt="">Admin</a>
+              </a>
+          </div>
+
+        </ul>
+        </div>
+    </nav>
+
+
+
+    {% block body_block %}
+    {% endblock %}
+    
+</body>
+</html>

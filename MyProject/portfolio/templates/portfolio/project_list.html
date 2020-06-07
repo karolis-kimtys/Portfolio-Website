@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% extends "base/base.html" %}
+{% block body_block %}
+{% load static %}
+
+<div class="container-md">
+  <h1 class="display-4">My Portfolio</h1>
+  <hr class="my-4">
+  <div class="card-columns">
+    {% for pro in project %}
+        <div class="card border-0">
+
+          <div class="img-hover-zoom--colorize">
+            <a href="{{ pro.id }}">
+              <img  id ="imgzoom" class="card-img-top" src="{{ pro.project_image.url }}" alt="Image not found"> 
+            </a>
+          </div>
+
+                     
+          <div class="card-body">
+              <p class="card-text" id = "card-title" >{{ pro.project_title }}</p>              
+              <p class="card-text" id = "card-summary" >{{ pro.project_short_summary|safe }}</p>
+              
+              <a id="portfoliobtn" class="nav-link active" href="{{ pro.id }}">
+                <img class = "view" src="{% static 'images/view.svg' %}" alt="">View</a>
+              </a>
+
+          </div>
+        </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+
+{% endblock %}

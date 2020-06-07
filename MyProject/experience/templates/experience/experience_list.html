@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+{% extends "base/base.html" %}
+{% load static %}
+{% block body_block %}
+
+  <div class="container-md">
+      <h1 class="display-4">My Resume</h1>
+      <a id="socialbtn" class="refresh-button" target="_blank" download href="https://1drv.ms/w/s!AoWb_z-Z8JWwgaFDVVdYX4_BqOz9EA?e=bbzzge" onClick="window.location.reload()" download >
+        <img class = "social" src="{% static 'images/download.svg' %}" alt="">Download CV (Word)
+      </a>
+
+      <a id="socialbtn" class="refresh-button" target="_blank" download href="https://1drv.ms/b/s!AoWb_z-Z8JWwgaFG4PD_-ZiTrjaO4A?e=1fj3T9" onClick="window.location.reload()" download >
+        <img class = "social" src="{% static 'images/download.svg' %}" alt="">Download CV (PDF)
+      </a>
+      <hr class="my-4">
+      
+      <div class="container-md">
+        <br>
+        <h1>Web Developer</h1>
+        <h3>PROFESSIONAL SUMMARY</h3>
+        <h6>An accomplished and high-achieving professional now looking to utilise an excellent skill set to in the IT industry. Proven hands on experience of using Python programming language, libraries for website development, data visualization and analysis. An influential manager and goal-oriented team leader that can motivate, educate and bridge the gap to achieve results by building long-term and mutually beneficial internal and external stakeholder relationships, whilst building long lasting trust and mutual respect at all levels.</h4>  
+        <br>
+        <hr>
+        <br>
+      </div>
+
+      {% for exp in experience %}
+
+      <div class="container-xl">
+        <h2 class ="sections">{{ exp.experience_section }}</h2>
+        
+        <h2 class ="jtitle">{{ exp.experience_job_title }}</h2> 
+
+        <br>
+        <h3 class = "company">{{ exp.experience_company }}</h2>
+      
+        <h4 class = "dates">{{ exp.date_from }} - {{ exp.date_to }}</h4>
+        <h4 class = "content">{{ exp.experience_content|safe }}</h4>
+        <br>
+
+      </div>
+      <br>
+      {% endfor %}
+
+      <div class = "logos">
+        <a target = "_blank" href="http://www.python.org/">
+          <img class = "interests" src="/static/interests/python.png" alt="">
+        </a>
+        <a target = "_blank" href= "https://www.djangoproject.com/">
+          <img class = "interests" src="/static/interests/django.png" alt="">
+        </a>
+        <a target = "_blank" href="https://getbootstrap.com/">
+          <img class = "interests" src="/static/interests/bootstrap.png" alt="">
+        </a>
+        <a target = "_blank" href="https://www.javascript.com/">
+          <img class = "interests" src="/static/interests/jscript.png" alt="">
+        </a>
+        <a target = "_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML">
+          <img class = "interests" src="/static/interests/html.png" alt="">
+        </a>
+        <a target = "_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS">
+          <img class = "interests" src="/static/interests/css.png" alt="">
+        </a>
+        <a target = "_blank" href="https://nodejs.org/en/">
+          <img class = "interests" src="/static/interests/nodejs.png" alt="">
+        </a>
+        <a target = "_blank" href="https://jquery.com/">
+          <img class = "interests" src="/static/interests/jq.png" alt="">
+        </a>
+
+
+        
+
+      </div>
+
+  </div>
+
+
+{% endblock %}
